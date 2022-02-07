@@ -1,0 +1,40 @@
+.header-foreground {
+  position: relative;
+  z-index: 1003;
+}
+
+.navbar-bg {
+  background: rgba(144, 137, 170);
+  background: -moz-linear-gradient(left, rgb(144, 137, 170) 0%, #342d71 100%);
+  background: -webkit-linear-gradient(left, rgba(144, 137, 170) 0%, #342d71 100%);
+  background: linear-gradient(to right, rgba(144, 137, 170) 0%, #342d71 100%);
+}
+
+.navbar {
+  height: 60px;
+  //opacity: 40%;
+}
+
+.navbar-brand {
+  color: #fff;
+}
+
+.navbar-brand:hover {
+  color: #cfcfcf;
+}
+
+.navbar-nav a, .navbar-nav i, .navbar-nav span {
+  color: #fff;
+}
+
+.navbar-nav .nav-item.active .nav-link, .navbar-nav .nav-item:hover .nav-link {
+  color: #cfcfcf;
+}
+
+.dropdown-menu a {
+  color: black;
+}
+
+.dropdown-item:hover {
+  background-color: #cfcfcf;
+}
