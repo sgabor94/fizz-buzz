@@ -16,4 +16,9 @@ public class FizzBuzzRuntimeException extends RuntimeException {
         super(e);
         this.errorCode = errorCode;
     }
+
+    public FizzBuzzRuntimeException(String message, Exception e) {
+        super(message, e);
+        this.errorCode = null;
+    }
 }
