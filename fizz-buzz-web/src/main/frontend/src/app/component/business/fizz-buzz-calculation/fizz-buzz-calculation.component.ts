@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FizzBuzzCalculationService} from '../../../service/fizz-buzz-calculation.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-fizz-buzz-calculation',
@@ -8,17 +9,29 @@ import {FizzBuzzCalculationService} from '../../../service/fizz-buzz-calculation
 })
 export class FizzBuzzCalculationComponent implements OnInit {
 
+  MAX_INTEGER = 2147483647;
+
   result: string;
+  numberForCalculate: number
 
-  constructor(private fizzBuzzCalculationService: FizzBuzzCalculationService) {
+  calculateForm = new FormGroup({});
+
+  get f() {
+    return this.calculateForm.controls;
   }
 
-  ngOnInit(): void {
-    this.initFizzBuzz();
+  constructor(private fizzBuzzCalculationService: FizzBuzzCalculationService,
+              private formBuilder: FormBuilder) {
+    this.calculateForm = formBuilder.group({
+      ['numberForCalculate']: ['', [Validators.min(0), Validators.max(this.MAX_INTEGER)]]
+    });
   }
 
-  initFizzBuzz() {
-    this.fizzBuzzCalculationService.getFizzBuzz().subscribe(
+  ngOnInit(): void { // NOSONAR
+  }
+
+  calculateNumberFizzBuzz(num: number) {
+    this.fizzBuzzCalculationService.calculateFizzBuzzFor(num).subscribe(
       result => {
         this.result = result;
       },
@@ -28,5 +41,4 @@ export class FizzBuzzCalculationComponent implements OnInit {
       }
     );
   }
-
 }

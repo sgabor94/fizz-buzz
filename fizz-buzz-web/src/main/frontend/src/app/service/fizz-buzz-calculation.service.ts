@@ -10,7 +10,7 @@ export class FizzBuzzCalculationService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getFizzBuzz() {
-    return this.httpClient.get(FIZZ_BUZZ_CALCULATION_API, {responseType: 'text'});
+  calculateFizzBuzzFor(num: number) {
+    return this.httpClient.get(FIZZ_BUZZ_CALCULATION_API + "?number=" + num, {responseType: 'text'});
   }
 }

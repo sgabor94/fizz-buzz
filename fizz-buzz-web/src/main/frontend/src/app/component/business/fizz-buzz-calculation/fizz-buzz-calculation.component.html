@@ -1,2 +1,25 @@
-<p>fizz-buzz-calculation works!</p>
-<p>{{result}}</p>
+<!--suppress AngularUndefinedBinding -->
+<h3>Fizz Buzz calculation</h3>
+<br/>
+<div class="col-sm-12">
+  <form [formGroup]="calculateForm">
+    <label for="numberForCalculate">Number for calculating Fizz Buzz: </label>
+    &nbsp;
+    <input type="number" [(ngModel)]="numberForCalculate" id="numberForCalculate" formControlName="numberForCalculate"
+           [min]="0" [max]="MAX_INTEGER" (mousedown)="result=''">
+    <br/>
+    <button type="button" class="btn btn-sm btn-outline-success" (click)="calculateNumberFizzBuzz(numberForCalculate)"
+            [disabled]="f['numberForCalculate'].errors && f['numberForCalculate'].errors">
+      Calculate
+    </button>
+    <br/>
+    <br/>
+    <div>
+      <span>Result of Fizz Buzz calculation: {{result}}</span>
+    </div>
+    <div *ngIf="f['numberForCalculate'].errors">
+      Please give a valid number between 0 and {{MAX_INTEGER}}
+    </div>
+  </form>
+</div>
+<hr>

@@ -7,6 +7,7 @@ import {HeaderComponent} from './component/util/header/header.component';
 import {FizzBuzzCalculationComponent} from './component/business/fizz-buzz-calculation/fizz-buzz-calculation.component';
 import {FizzBuzzCalculationService} from './service/fizz-buzz-calculation.service';
 import {HttpClientModule} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,8 @@ import {HttpClientModule} from '@angular/common/http';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [
