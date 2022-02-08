@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface FizzBuzzCalculationService {
 
-    List<Integer> calculateFizzBuzzElements(int n);
+    List<String> calculateFizzBuzzElements(int n);
 
     String calculateFizzBuzzFor(int number);
 }

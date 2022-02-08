@@ -1,4 +1,4 @@
-<!--suppress AngularUndefinedBinding -->
+<!--suppress AngularUndefinedBinding, JSVoidFunctionReturnValueUsed -->
 <h3>Fizz Buzz calculation</h3>
 <br/>
 <div class="col-sm-12">
@@ -18,7 +18,7 @@
       <span>Result of Fizz Buzz calculation: {{result}}</span>
     </div>
     <div *ngIf="f['numberForCalculate'].errors">
-      Please give a valid number between 0 and {{MAX_INTEGER}}
+      {{showValidationMessage()}}
     </div>
   </form>
 </div>

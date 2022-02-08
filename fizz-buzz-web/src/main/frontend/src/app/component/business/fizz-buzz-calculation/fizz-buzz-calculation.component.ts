@@ -23,7 +23,7 @@ export class FizzBuzzCalculationComponent implements OnInit {
   constructor(private fizzBuzzCalculationService: FizzBuzzCalculationService,
               private formBuilder: FormBuilder) {
     this.calculateForm = formBuilder.group({
-      ['numberForCalculate']: ['', [Validators.min(0), Validators.max(this.MAX_INTEGER)]]
+      ['numberForCalculate']: ['', [Validators.min(1), Validators.max(this.MAX_INTEGER)]]
     });
   }
 
@@ -40,5 +40,10 @@ export class FizzBuzzCalculationComponent implements OnInit {
         alert("Error occurred");
       }
     );
+  }
+
+  showValidationMessage() {
+    alert('Please give a valid number between 1 and ' + this.MAX_INTEGER);
+    this.numberForCalculate = 1;
   }
 }
