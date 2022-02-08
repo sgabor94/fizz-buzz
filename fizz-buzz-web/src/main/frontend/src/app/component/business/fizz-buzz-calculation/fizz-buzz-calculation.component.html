@@ -21,5 +21,16 @@
       {{showValidationMessage()}}
     </div>
   </form>
+  <hr>
+  <div>
+    <button type="button" class="btn btn-sm btn-outline-success" (click)="calculateFirstNFizzBuzzElement()">
+      Show
+    </button>
+  </div>
+  <br/>
+  <div *ngIf="firstNElement.length">
+  <span>
+    {{firstNElement.join(', ')}}
+  </span>
+  </div>
 </div>
-<hr>

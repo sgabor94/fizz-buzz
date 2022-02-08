@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {FizzBuzzCalculationService} from '../../../service/fizz-buzz-calculation.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
@@ -12,34 +12,58 @@ export class FizzBuzzCalculationComponent implements OnInit {
   MAX_INTEGER = 2147483647;
 
   result: string;
-  numberForCalculate: number
+  numberForCalculate: number = 1;
+
+  firstNElement: string[] = [];
 
   calculateForm = new FormGroup({});
+  formBuilder: FormBuilder = new FormBuilder();
 
   get f() {
     return this.calculateForm.controls;
   }
 
   constructor(private fizzBuzzCalculationService: FizzBuzzCalculationService,
-              private formBuilder: FormBuilder) {
-    this.calculateForm = formBuilder.group({
+              private cdRef: ChangeDetectorRef) {
+
+  }
+
+  ngOnInit(): void {
+    this.calculateForm = this.formBuilder.group({
       ['numberForCalculate']: ['', [Validators.min(1), Validators.max(this.MAX_INTEGER)]]
     });
   }
 
-  ngOnInit(): void { // NOSONAR
+  ngAfterViewChecked() {
+    this.cdRef.detectChanges();
   }
 
-  calculateNumberFizzBuzz(num: number) {
-    this.fizzBuzzCalculationService.calculateFizzBuzzFor(num).subscribe(
-      result => {
-        this.result = result;
+  calculateFirstNFizzBuzzElement() {
+    this.fizzBuzzCalculationService.calculateFirstNFizzBuzzElement().subscribe(
+      data => {
+        this.firstNElement = data;
       },
       error => {
         console.error('Error occurred', error);
         alert("Error occurred");
       }
     );
+  }
+
+  calculateNumberFizzBuzz(num: number) {
+    if (num != null) {
+      this.fizzBuzzCalculationService.calculateFizzBuzzFor(num).subscribe(
+        data => {
+          this.result = data;
+        },
+        error => {
+          console.error('Error occurred', error);
+          alert("Error occurred");
+        }
+      );
+    } else {
+      this.showValidationMessage();
+    }
   }
 
   showValidationMessage() {

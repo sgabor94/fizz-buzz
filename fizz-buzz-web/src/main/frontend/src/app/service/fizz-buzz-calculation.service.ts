@@ -10,7 +10,11 @@ export class FizzBuzzCalculationService {
   constructor(private httpClient: HttpClient) {
   }
 
-  calculateFizzBuzzFor(num: number) {
+  calculateFirstNFizzBuzzElement() {
+    return this.httpClient.get<string[]>(FIZZ_BUZZ_CALCULATION_API + "/first-n-element");
+  }
+
+  calculateFizzBuzzFor(num: number = 1) {
     return this.httpClient.get(FIZZ_BUZZ_CALCULATION_API + "?number=" + num, {responseType: 'text'});
   }
 }
