@@ -1,6 +1,7 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {FizzBuzzCalculationService} from '../../../service/fizz-buzz-calculation.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AlertService} from '../../../service/util/alert.service';
 
 @Component({
   selector: 'app-fizz-buzz-calculation',
@@ -24,7 +25,8 @@ export class FizzBuzzCalculationComponent implements OnInit {
   }
 
   constructor(private fizzBuzzCalculationService: FizzBuzzCalculationService,
-              private cdRef: ChangeDetectorRef) {
+              private cdRef: ChangeDetectorRef,
+              private alertService: AlertService) {
 
   }
 
@@ -44,21 +46,19 @@ export class FizzBuzzCalculationComponent implements OnInit {
         this.firstNElement = data;
       },
       error => {
-        console.error('Error occurred', error);
-        alert("Error occurred");
+        this.alertService.handleError(error);
       }
     );
   }
 
   calculateNumberFizzBuzz(num: number) {
     if (num != null) {
-      this.fizzBuzzCalculationService.calculateFizzBuzzFor(num).subscribe(
+      this.fizzBuzzCalculationService.calculateFizzBuzzFor(-2).subscribe(
         data => {
-          this.result = data;
+          this.result = data as string;
         },
         error => {
-          console.error('Error occurred', error);
-          alert("Error occurred");
+          this.alertService.handleError(error);
         }
       );
     } else {

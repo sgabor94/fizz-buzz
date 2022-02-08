@@ -1,5 +1,7 @@
-package hu.sprintform.gsomogyi.fizz.buzz.app;
+package hu.sprintform.gsomogyi.fizz.buzz.service.app;
 
+import hu.sprintform.gsomogyi.fizz.buzz.dto.exception.ErrorCode;
+import hu.sprintform.gsomogyi.fizz.buzz.dto.exception.FizzBuzzRuntimeException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +18,9 @@ public class FizzBuzzCalculationServiceImpl implements FizzBuzzCalculationServic
 
     @Override
     public String calculateFizzBuzzFor(int number) {
+        if (number < 0) {
+            throw new FizzBuzzRuntimeException(ErrorCode.INVALID_VALUE_FOR_NUMBER);
+        }
         StringBuilder result = new StringBuilder();
         result.append(convertNumberToFizzBuzzElement(number, 3, "Fizz"));
         result.append(convertNumberToFizzBuzzElement(number, 5, "Buzz"));
@@ -23,9 +28,13 @@ public class FizzBuzzCalculationServiceImpl implements FizzBuzzCalculationServic
     }
 
     private String convertNumberToFizzBuzzElement(int number, int divider, String replaceText) {
-        if (number % divider == 0) {
-            return replaceText;
+        try {
+            if (number % divider == 0) {
+                return replaceText;
+            }
+            return "";
+        } catch (ArithmeticException e) {
+            throw new FizzBuzzRuntimeException(ErrorCode.INVALID_ZERO_DIVIDER, e);
         }
-        return "";
     }
 }

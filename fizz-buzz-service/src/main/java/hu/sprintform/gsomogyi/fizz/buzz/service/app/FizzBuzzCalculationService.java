@@ -1,4 +1,4 @@
-package hu.sprintform.gsomogyi.fizz.buzz.app;
+package hu.sprintform.gsomogyi.fizz.buzz.service.app;
 
 import java.util.List;
 

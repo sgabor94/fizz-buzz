@@ -11,4 +11,12 @@
 
     <artifactId>fizz-buzz-service</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>hu.sprintform.gsomogyi</groupId>
+            <artifactId>fizz-buzz-dto</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
 </project>

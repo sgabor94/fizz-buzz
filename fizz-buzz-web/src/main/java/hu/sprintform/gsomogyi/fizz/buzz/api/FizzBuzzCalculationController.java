@@ -1,6 +1,6 @@
 package hu.sprintform.gsomogyi.fizz.buzz.api;
 
-import hu.sprintform.gsomogyi.fizz.buzz.app.FizzBuzzCalculationService;
+import hu.sprintform.gsomogyi.fizz.buzz.service.app.FizzBuzzCalculationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

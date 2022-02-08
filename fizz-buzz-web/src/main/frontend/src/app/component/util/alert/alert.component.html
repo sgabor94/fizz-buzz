@@ -1,0 +1,10 @@
+<div class="outerDiv">
+  <br/>
+  <br/>
+  <div class="innerDiv">
+    <div *ngFor="let alert of alerts" class="alert {{ cssClass(alert) }} alert-dismissable" role="alert" [@fadeIn]>
+      {{alert.message}}
+      &nbsp;<a class="close" style="cursor: pointer" (click)="removeAlert(alert)">&times;</a>
+    </div>
+  </div>
+</div>
