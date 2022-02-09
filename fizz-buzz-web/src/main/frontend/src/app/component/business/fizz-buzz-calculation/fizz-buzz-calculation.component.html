@@ -8,7 +8,7 @@
     <input type="number" [(ngModel)]="numberForCalculate" id="numberForCalculate" formControlName="numberForCalculate"
            [min]="0" [max]="MAX_INTEGER" (mousedown)="result=''">
     <br/>
-    <button type="button" class="btn btn-sm btn-outline-success" (click)="calculateNumberFizzBuzz(numberForCalculate)"
+    <button type="button" class="btn btn-sm btn-outline-success" (click)="calculateNumberFizzBuzz()"
             [disabled]="f['numberForCalculate'].errors && f['numberForCalculate'].errors">
       Calculate
     </button>

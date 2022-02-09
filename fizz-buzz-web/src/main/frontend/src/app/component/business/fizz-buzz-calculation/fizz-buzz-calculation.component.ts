@@ -51,9 +51,9 @@ export class FizzBuzzCalculationComponent implements OnInit {
     );
   }
 
-  calculateNumberFizzBuzz(num: number) {
-    if (num != null) {
-      this.fizzBuzzCalculationService.calculateFizzBuzzFor(-2).subscribe(
+  calculateNumberFizzBuzz() {
+    if (this.numberForCalculate != null) {
+      this.fizzBuzzCalculationService.calculateFizzBuzzFor(this.numberForCalculate).subscribe(
         data => {
           this.result = data as string;
         },

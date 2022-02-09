@@ -11,13 +11,15 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AlertService} from './service/util/alert.service';
 import {AlertComponent} from './component/util/alert/alert.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {HomeComponent} from './component/business/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FizzBuzzCalculationComponent,
     AlertComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

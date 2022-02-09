@@ -15,6 +15,6 @@ export class FizzBuzzCalculationService {
   }
 
   calculateFizzBuzzFor(num: number = 1) {
-    return this.httpClient.get(FIZZ_BUZZ_CALCULATION_API + "?number=" + num);
+    return this.httpClient.get(FIZZ_BUZZ_CALCULATION_API + "?number=" + num, {responseType: 'text'});
   }
 }
