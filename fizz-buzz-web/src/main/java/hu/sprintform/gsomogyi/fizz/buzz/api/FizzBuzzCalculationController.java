@@ -25,7 +25,7 @@ public class FizzBuzzCalculationController {
     }
 
     @GetMapping("/first-n-element")
-    public ResponseEntity<List<String>> calculateFizzBuzzElements(@RequestParam(defaultValue = "100") int n) {
-        return ResponseEntity.ok(fizzBuzzCalculationService.calculateFizzBuzzElements(n));
+    public ResponseEntity<List<String>> calculateFizzBuzzElements(@RequestParam(defaultValue = "100") int numberOfElements) {
+        return ResponseEntity.ok(fizzBuzzCalculationService.calculateFizzBuzzElements(numberOfElements));
     }
 }

@@ -12,8 +12,8 @@ import java.util.stream.IntStream;
 public class FizzBuzzCalculationServiceImpl implements FizzBuzzCalculationService {
 
     @Override
-    public List<String> calculateFizzBuzzElements(int n) {
-        return IntStream.rangeClosed(1, n).mapToObj(this::calculateFizzBuzzFor).collect(Collectors.toList());
+    public List<String> calculateFizzBuzzElements(int numberOfElements) {
+        return IntStream.rangeClosed(1, numberOfElements).mapToObj(this::calculateFizzBuzzFor).collect(Collectors.toList());
     }
 
     @Override

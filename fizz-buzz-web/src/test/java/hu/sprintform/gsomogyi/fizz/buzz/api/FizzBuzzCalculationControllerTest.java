@@ -88,10 +88,10 @@ class FizzBuzzCalculationControllerTest {
         // given
 
         // when
-        ResponseEntity<String[]> fizzBuzzElements15 = restTemplate.exchange(FizzBuzzCalculationController.BASE_URL + "/first-n-element?n=15",
+        ResponseEntity<String[]> fizzBuzzElements15 = restTemplate.exchange(FizzBuzzCalculationController.BASE_URL + "/first-n-element?numberOfElements=15",
                 HttpMethod.GET, new HttpEntity<>(null), String[].class);
 
-        ResponseEntity<String[]> fizzBuzzElements1000 = restTemplate.exchange(FizzBuzzCalculationController.BASE_URL + "/first-n-element?n=1000",
+        ResponseEntity<String[]> fizzBuzzElements1000 = restTemplate.exchange(FizzBuzzCalculationController.BASE_URL + "/first-n-element?numberOfElements=1000",
                 HttpMethod.GET, new HttpEntity<>(null), String[].class);
 
         // then
