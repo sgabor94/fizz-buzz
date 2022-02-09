@@ -28,7 +28,7 @@ class FizzBuzzCalculationControllerTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    void calculateFizzBuzzForNumber() {
+    void calculateFizzBuzzForValidNumbers() {
         // given
 
         // when
